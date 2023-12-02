@@ -1,0 +1,11 @@
+{
+  "lang": "Elixir",
+  "year": 2023,
+  "days": {
+    "1": {
+      "partOneDone": true,
+      "partTwoDone": true,
+      "codeOne": "./day1.ex"
+    }
+  }
+}
