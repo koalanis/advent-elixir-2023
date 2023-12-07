@@ -118,17 +118,18 @@ defmodule DayTwo do
   end
 
   def parse_hand(hand) do
-    to_tuple = fn line ->
+    to_dict = fn line ->
       %{"#{Enum.at(line, 1)}": Enum.at(line, 0) |> String.to_integer()}
     end
 
     hand
-      |> String.trim() # trim string
-      |> String.split(",", trim: true) # then split on space to list
-      |> Enum.map(&String.trim/1) # then map-apply  trim on each list element
-      |> Enum.map(&String.split(&1, " ")) # then map-apply split on space on each list element
-      |> Enum.map(to_tuple) # transform array into dictionary
-      |> Enum.reduce(%{}, &Map.merge(&1, &2, fn _, v1, v2 -> v1 + v2 end)) # reduce all dictionaries, handle dups with addition accumulator
+      |> String.trim()
+      |> String.split(",", trim: true)
+      |> Enum.map(&String.trim/1)
+      |> Enum.map(&String.split(&1, " "))
+      |> Enum.map(to_dict)
+      # reduce all dictionaries, handle dups with addition accumulator
+      |> Enum.reduce(%{}, &Map.merge(&1, &2, fn _, v1, v2 -> v1 + v2 end))
   end
 
   def line_to_map(line) do
