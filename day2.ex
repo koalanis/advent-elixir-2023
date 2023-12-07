@@ -13,8 +13,6 @@ defmodule DayTwo do
 
   def parse_hand(hand) do
     to_tuple = fn line ->
-      f = Enum.at(line, 0)
-      l = Enum.at(line, 1)
       %{"#{Enum.at(line, 1)}": Enum.at(line, 0) |> String.to_integer()}
     end
 
