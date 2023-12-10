@@ -123,13 +123,13 @@ defmodule DayTwo do
     end
 
     hand
-      |> String.trim()
-      |> String.split(",", trim: true)
-      |> Enum.map(&String.trim/1)
-      |> Enum.map(&String.split(&1, " "))
-      |> Enum.map(to_dict)
-      # reduce all dictionaries, handle dups with addition accumulator
-      |> Enum.reduce(%{}, &Map.merge(&1, &2, fn _, v1, v2 -> v1 + v2 end))
+    |> String.trim()
+    |> String.split(",", trim: true)
+    |> Enum.map(&String.trim/1)
+    |> Enum.map(&String.split(&1, " "))
+    |> Enum.map(to_dict)
+    # reduce all dictionaries, handle dups with addition accumulator
+    |> Enum.reduce(%{}, &Map.merge(&1, &2, fn _, v1, v2 -> v1 + v2 end))
   end
 
   def line_to_map(line) do
@@ -149,13 +149,14 @@ defmodule DayTwo do
       game
       |> Map.get(:runs)
       |> Enum.reduce(%{}, &Map.merge(&1, &2, fn _, v1, v2 -> Enum.max([v1, v2]) end))
+
     out
   end
 
   def is_hand_possible(hand) do
     Map.merge(get_bag(), hand, fn _, v1, v2 -> v1 >= v2 end)
-      |> Map.values()
-      |> Enum.all?()
+    |> Map.values()
+    |> Enum.all?()
   end
 
   def is_game_possible(game) do
@@ -186,11 +187,10 @@ defmodule DayTwo do
     IO.inspect(out, label: "solution two")
   end
 
-
   def parse_data(data) do
     data
-      |> String.split("\n")
-      |> Enum.map(&DayTwo.line_to_map/1)
+    |> String.split("\n")
+    |> Enum.map(&DayTwo.line_to_map/1)
   end
 
   def run do
