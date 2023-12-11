@@ -16,6 +16,11 @@
       "partOneDone": true,
       "partTwoDone": true,
       "codeOne": "./day3.ex"
+    },
+    "4": {
+      "partOneDone": true,
+      "partTwoDone": true,
+      "codeOne": "./day4.ex"
     }
   }
 }

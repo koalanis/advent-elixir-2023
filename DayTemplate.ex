@@ -12,7 +12,7 @@ defmodule DayTemplate do
 
         case File.read(filepath) do
           {:ok, content} ->
-            IO.puts("Put code here")
+            IO.puts("Put code here \n#{content}")
 
           {:error, reason} ->
             IO.puts("Could not read file because #{reason}")
